@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <div style="text-align: center; padding-top: 10%;">
+        <h1>Items on whishlist:</h1>
+    </br>
+    </br>
+
+        {% for task in tasks %}
+        <form action="{{ url_for('perform_action') }}" method="post">
+        <p1 style="font-size: 24px; font-weight: bold; line-height: 1.5; color: #333; margin-right: 20px;">
+            {{ task[1] }} - {{ task[2] }}
+            <input type="hidden" name="id" value="{{task[0] }}">
+            <input type="hidden" name="current_time" value="{{task[2] }}">
+        </p1>
+
+            <button type="submit">Reduce by 10 mins</button>
+        </form>
+
+        {% endfor %}
+    </div>
+
+</body>
+
+</html>
