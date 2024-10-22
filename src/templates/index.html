@@ -14,8 +14,8 @@
             <input type="hidden" name="id" value="{{task[0] }}">
             <input type="hidden" name="current_time" value="{{task[2] }}">
         </p1>
-
-            <button type="submit">Reduce by 10 mins</button>
+            <input type="time" name="reduce_minutes" value="00:00">
+            <button type="submit">Reduce time</button>
         </form>
 
         {% endfor %}
