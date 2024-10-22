@@ -15,12 +15,11 @@ def home():
 def perform_action():
     id = request.form.get("id")
     time = request.form.get("reduce_minutes")
-
-
+    substract_hours, substract_minutes = map(int, time.split(':'))
     initial_time_str = request.form.get("current_time")
     hours, minutes, seconds = map(int, initial_time_str.split(':'))
     initial_time = timedelta(hours=hours, minutes=minutes, seconds=seconds)
-    time_to_subtract = timedelta(minutes=10)
+    time_to_subtract = timedelta(hours=substract_hours,minutes=substract_minutes)
     new_time = initial_time - time_to_subtract
     total_seconds = int(new_time.total_seconds())
     new_hours, remainder = divmod(total_seconds, 3600)
