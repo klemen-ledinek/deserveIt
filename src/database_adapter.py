@@ -1,6 +1,10 @@
+import os
 import sqlite3
+from dotenv import load_dotenv
 
-_DATABASE = "C:\\Users\\kleme\\Documents\\Database\\DeserveIt.db"
+load_dotenv()
+
+_DATABASE = os.getenv('DATABASE_PATH')
 
 def get_tasks():
     conn = sqlite3.connect(_DATABASE)
